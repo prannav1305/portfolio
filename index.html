@@ -155,25 +155,42 @@
   .media-duo{display:flex; gap:14px;}
   .media-duo .col{flex:1;}
 
-  /* Experience timeline */
-  .timeline{border-left:2px solid var(--line); margin-left:6px; padding-left:32px;}
-  .tl-item{position:relative; margin-bottom:38px;}
-  .tl-item:last-child{margin-bottom:0;}
-  .tl-item::before{
-    content:""; position:absolute; left:-40px; top:4px;
-    width:14px; height:14px; border-radius:50%;
-    background:var(--gold); border:3px solid var(--paper);
-    box-shadow:0 0 0 2px var(--gold);
+  /* Experience — project cards */
+  .project{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+    padding:30px 34px; box-shadow:0 8px 24px rgba(15,31,56,0.05);
+    margin-bottom:28px; position:relative; border-left:4px solid var(--gold);
   }
-  .tl-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; margin-bottom:6px;}
-  .tl-role{font-weight:700; color:var(--navy); font-size:1.08rem;}
-  .tl-org{color:var(--slate); font-size:0.9rem;}
-  .tl-date{
+  .project:last-child{margin-bottom:0;}
+  .project-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; margin-bottom:14px;}
+  .project-eyebrow{
+    display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:1.4px;
+    color:var(--gold); font-weight:700; margin-bottom:6px;
+  }
+  .project-role{font-weight:700; color:var(--navy); font-size:1.2rem;}
+  .project-org{color:var(--slate); font-size:0.9rem; margin-top:2px;}
+  .project-date{
     font-size:0.78rem; color:var(--gold); font-weight:700; letter-spacing:0.5px;
     white-space:nowrap; align-self:flex-start;
   }
-  .tl-item ul{margin:8px 0 0; padding-left:20px; color:#3c4757; font-size:0.95rem;}
-  .tl-item li{margin-bottom:5px;}
+  .project-desc{margin:0; padding-left:20px; color:#3c4757; font-size:0.95rem;}
+  .project-desc li{margin-bottom:6px;}
+
+  /* Stat tiles — highlight numerical impact within a project */
+  .stat-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:18px;}
+  .stat-tile{
+    flex:1 1 180px; min-width:160px;
+    background:var(--paper-dim); border:1px solid var(--line); border-radius:10px;
+    padding:14px 16px;
+  }
+  .stat-value{
+    font-family:'Georgia','Times New Roman', serif; font-weight:700;
+    color:var(--navy); font-size:1.35rem; line-height:1.15;
+    display:flex; align-items:baseline; gap:4px; flex-wrap:wrap;
+  }
+  .stat-arrow{color:var(--gold); font-size:1.1rem;}
+  .stat-label{font-size:0.82rem; color:#3c4757; font-weight:600; margin-top:4px;}
+  .stat-sub{font-size:0.76rem; color:var(--slate); margin-top:2px;}
 
   /* Grid cards */
   .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:20px;}
@@ -280,36 +297,74 @@
       <h2>Deloitte USI &middot; 39 Months</h2>
       <div class="rule"></div>
     </div>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-head">
-          <div><span class="tl-role">Project Management Office</span><br><span class="tl-org">Deloitte USI</span></div>
-          <div class="tl-date">Jan 2026 – May 2026</div>
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <span class="project-eyebrow">Project 1 of 3</span>
+          <div class="project-role">Project Management Office</div>
+          <div class="project-org">Deloitte USI</div>
         </div>
-        <ul>
-          <li>Collaborated with Project Leaders, providing required client data — conducted monthly deliverable meetings — tracked new demand requirements from clients.</li>
-          <li>Managed the firm's practitioner data and monitored compliance — automated the opportunity pipeline and revenue report, reducing analysis duration from 8 hours to 30 minutes.</li>
-        </ul>
+        <div class="project-date">Jan 2026 – May 2026</div>
       </div>
-      <div class="tl-item">
-        <div class="tl-head">
-          <div><span class="tl-role">Change Request Developer</span><br><span class="tl-org">Deloitte USI</span></div>
-          <div class="tl-date">Mar 2024 – Dec 2025</div>
+      <ul class="project-desc">
+        <li>Collaborated with Project Leaders, providing required client data — conducted monthly deliverable meetings — tracked new demand requirements from clients.</li>
+        <li>Managed the firm's practitioner data and monitored compliance — automated the opportunity pipeline and revenue report, reducing analysis duration from 8 hours to 30 minutes.</li>
+      </ul>
+      <div class="stat-row">
+        <div class="stat-tile">
+          <div class="stat-value">94%<span class="stat-arrow">↓</span></div>
+          <div class="stat-label">Faster analysis turnaround</div>
+          <div class="stat-sub">8 hrs → 30 min</div>
         </div>
-        <ul>
-          <li>Developed and implemented new Change Requests — incorporating client requirements — delivering timely code and data fixes to maintain efficient operation.</li>
-          <li>Collaborated with adjacent threads to address code and data fixes, resulting in a 30% reduction in reported errors and bugs and improved application stability.</li>
-        </ul>
       </div>
-      <div class="tl-item">
-        <div class="tl-head">
-          <div><span class="tl-role">Analyst</span><br><span class="tl-org">Deloitte USI</span></div>
-          <div class="tl-date">May 2023 – Feb 2024</div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <span class="project-eyebrow">Project 2 of 3</span>
+          <div class="project-role">Change Request Developer</div>
+          <div class="project-org">Deloitte USI</div>
         </div>
-        <ul>
-          <li>Developed a Web API enabling seamless data migration between two cloud service providers, minimizing transfer and pipeline errors from 40% to 3%.</li>
-          <li>Built an Azure Docker container to securely store and switch secret keys, automating the migration flow and reducing runtime from 2 minutes to 25 seconds.</li>
-        </ul>
+        <div class="project-date">Mar 2024 – Dec 2025</div>
+      </div>
+      <ul class="project-desc">
+        <li>Developed and implemented new Change Requests — incorporating client requirements — delivering timely code and data fixes to maintain efficient operation.</li>
+        <li>Collaborated with adjacent threads to address code and data fixes, resulting in a 30% reduction in reported errors and bugs and improved application stability.</li>
+      </ul>
+      <div class="stat-row">
+        <div class="stat-tile">
+          <div class="stat-value">30%<span class="stat-arrow">↓</span></div>
+          <div class="stat-label">Fewer reported errors &amp; bugs</div>
+          <div class="stat-sub">Improved application stability</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <span class="project-eyebrow">Project 3 of 3</span>
+          <div class="project-role">Analyst</div>
+          <div class="project-org">Deloitte USI</div>
+        </div>
+        <div class="project-date">May 2023 – Feb 2024</div>
+      </div>
+      <ul class="project-desc">
+        <li>Developed a Web API enabling seamless data migration between two cloud service providers, minimizing transfer and pipeline errors from 40% to 3%.</li>
+        <li>Built an Azure Docker container to securely store and switch secret keys, automating the migration flow and reducing runtime from 2 minutes to 25 seconds.</li>
+      </ul>
+      <div class="stat-row">
+        <div class="stat-tile">
+          <div class="stat-value">40%→3%</div>
+          <div class="stat-label">Data transfer &amp; pipeline error rate</div>
+          <div class="stat-sub">Across cloud migration</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-value">79%<span class="stat-arrow">↓</span></div>
+          <div class="stat-label">Faster migration runtime</div>
+          <div class="stat-sub">2 min → 25 sec</div>
+        </div>
       </div>
     </div>
   </div>
